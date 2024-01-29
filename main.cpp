@@ -5,6 +5,7 @@
 
 class SnakeGame
 {
+    public:
     void gotoxy (short x, short y)
 {
     COORD pos = {x,y};
@@ -14,19 +15,30 @@ class SnakeGame
     void GoUp();
     void GoLeft();
     void GoRight();
+    void Menu()
+    {
+        gotoxy(15,0);
+
+        std::cout << "**MENU**" << "\n";
+        Sleep(800);
+        gotoxy(12,1);
+        std::cout << "**1. Zagraj!**" << "\n";Sleep(800);
+        gotoxy(12,2);
+        std::cout << "**2. Wyjdz!**";Sleep(800);
+
+    }
+
 };
+
+
 
 int main()
 
 
 {
-
-char znak = getch();
-
-
-
-
+SnakeGame tak;
+tak.Menu();
+getch();
+return 0;
 
 }
-
-
