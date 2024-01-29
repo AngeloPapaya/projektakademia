@@ -19,12 +19,13 @@ class SnakeGame
     {
         gotoxy(15,0);
 
-        std::cout << "**MENU**" << "\n";
-        Sleep(800);
+        std::cout << "~~ SNAKE ~~" << "\n";
+        Sleep(600);
         gotoxy(12,1);
-        std::cout << "**1. Zagraj!**" << "\n";Sleep(800);
+        std::cout << "~~ 1. Zagraj! ~~" << "\n";Sleep(600);
         gotoxy(12,2);
-        std::cout << "**2. Wyjdz!**";Sleep(800);
+        std::cout << "~~ 2. Wyjdz! ~~";
+        getch();
 
     }
 
@@ -36,9 +37,21 @@ int main()
 
 
 {
+
+
 SnakeGame tak;
 tak.Menu();
-getch();
+
+
+
+
 return 0;
 
+
+
+
+
+
 }
+
+
