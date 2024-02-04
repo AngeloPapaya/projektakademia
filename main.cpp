@@ -12,7 +12,7 @@ int main()
     int poprzedniWybor;
     bool wykonujPetle;
 
-    //pêtla g³ówna programu
+    //pÃªtla gÂ³Ã³wna programu
     while(true)
     {
         wybor = 0;
@@ -29,38 +29,47 @@ int main()
 //        std::cout << "Exit";
             SnakeGame.Menu();
 
-        //przesuwanie strza³ki
+        //przesuwanie strzaÂ³ki
         while( wykonujPetle )
         {
 
-            SnakeGame.gotoxy( 1, wybor  + 4 );          //rysowanie strza³ki wyboru
+            SnakeGame.gotoxy( 1, wybor  + 4 );          //rysowanie strzaÂ³ki wyboru
             std::cout << static_cast < char >( 16 );
 
-            poprzedniWybor = wybor;         //obs³uga klawiatury
+            poprzedniWybor = wybor;         //obsÂ³uga klawiatury
             switch( getch() )
             {
-            case 224:           // STRZA£KI
+            case 224:           // STRZAÂ£KI
                 switch( getch() )
                 {
-                case 72:                //strza³ka w górê, ilosc opcji w menu (aktualnie dwie)
+                case 72:                //strzaÂ³ka w gÃ³rÃª, ilosc opcji w menu (aktualnie dwie)
                     if( 0 < wybor )
                     wybor--;
                     else wybor = 2;
                     break;
 
-                case 80:                    //strza³ka w dó³, ilosc opcji w menu (aktualnie dwie)
+                case 80:                    //strzaÂ³ka w dÃ³Â³, ilosc opcji w menu (aktualnie dwie)
                     if( wybor < 2 )
                     wybor++;
                     else wybor = 0;
                     break;
 
                 case 77: //strzalka w prawo
-                    //je¿eli wciœniêto strza³kê w prawo, sprawdŸ wybran¹ opcjê i wykonaj odpowiedni¹ akcjê
+                    //jeÂ¿eli wciÅ“niÃªto strzaÂ³kÃª w prawo, sprawdÅ¸ wybranÂ¹ opcjÃª i wykonaj odpowiedniÂ¹ akcjÃª
                     if ( wybor == 2)
                         {
                             wykonujPetle = false;
                             SnakeGame.KoniecGry();
                         }
+                    if (wybor == 1) //menu opcji
+                    {
+                        system( "cls" );
+                        break;
+                    }
+                case 75: //strzalka w lewo cofa do menu
+                    {
+                       break;
+                    }
 
 
 
@@ -86,7 +95,7 @@ int main()
             }
 
 
-            SnakeGame.gotoxy( 1, poprzedniWybor  + 4 ); //czyszczenie strza³ki wyboru
+            SnakeGame.gotoxy( 1, poprzedniWybor  + 4 ); //czyszczenie strzaÂ³ki wyboru
            std::cout << " ";
 
         }
