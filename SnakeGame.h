@@ -3,8 +3,10 @@
 #include "Menu.h"
 
 class SnakeGame {
+
 public:
     void StartGame();
+
 
 
 };

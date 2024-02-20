@@ -3,6 +3,7 @@
 class Menu
 {
 public:
+
     enum class Choice
     {
         Play = 0,

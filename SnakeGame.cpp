@@ -17,6 +17,8 @@ void SnakeGame::StartGame()
         int previousChoice;
         bool MenuLoop;
         bool MainLoop = true;
+        int firstOption = 0;
+        int lastOption = 2;
 
         while(MainLoop) //glowna petla programu
         {
@@ -40,15 +42,15 @@ void SnakeGame::StartGame()
                     switch( static_cast<Menu::Keys>(getch()) )
                     {
                     case Menu::Keys::Up:              //arrows up, options (currently only 3)
-                        if ( 0 < choice )
+                        if ( firstOption < choice )
                         choice--;
-                        else choice = 2;
+                        else choice = lastOption;
                         break;
 
                     case Menu::Keys::Down:                    //arrows down, options (currently only 3)
-                        if ( choice < 2 )
+                        if ( choice < lastOption )
                         choice++;
-                        else choice = 0;
+                        else choice = firstOption;
                         break;
 
                     case Menu::Keys::Right: //arrow right, if pressed go to option
@@ -61,6 +63,7 @@ void SnakeGame::StartGame()
                             {
                                 area.CleanScreenCompletely();
                                 area.ChooseArea();
+                                MainLoop = false;
                                 break;
 //                                break;
 //                                CleanScreenCompletely();
@@ -89,7 +92,7 @@ void SnakeGame::StartGame()
                         }
                     }
                 menu.gotoxy( 9, previousChoice  + 4 ); //cleaning arrow
-                std::cout << " ";
+                std::cout << " ";break;
 
                 }
             }
@@ -97,6 +100,9 @@ void SnakeGame::StartGame()
 
         }
     }
+
+
+
 
 
 
