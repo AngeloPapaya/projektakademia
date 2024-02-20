@@ -27,7 +27,7 @@ void Area::DrawArea(int width, int height) {
         CleanScreenCompletely(); // Clean screen before drawing
         SetTextColor(7);
 
-        // Rysuj górn¹ krawêdŸ obszaru
+        // Drawing upper edge of the area
         for (int i = 0; i < width + 2; ++i)
             std::cout << "#";
         std::cout << std::endl;

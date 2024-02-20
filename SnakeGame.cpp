@@ -20,13 +20,13 @@ void SnakeGame::StartGame()
         int firstOption = 0;
         int lastOption = 2;
 
-        while(MainLoop) //glowna petla programu
+        while(MainLoop) //main loop of the program
         {
             choice = 0;
             previousChoice = choice;
             MenuLoop = true;
 
-                    //rysowanie menu
+                    //drawing menu
             system( "cls" );
             menu.PrintMenu();
 
@@ -38,7 +38,7 @@ void SnakeGame::StartGame()
                 previousChoice = choice;         //keyboard service
                 switch( getch() )
                 {
-                case 224:           // STRZALKI
+                case 224:           // ARROWS
                     switch( static_cast<Menu::Keys>(getch()) )
                     {
                     case Menu::Keys::Up:              //arrows up, options (currently only 3)
@@ -65,11 +65,10 @@ void SnakeGame::StartGame()
                                 area.ChooseArea();
                                 MainLoop = false;
                                 break;
-//                                break;
 //                                CleanScreenCompletely();
                                  //tutaj bedzie kod snake'a
                             }
-                            if ( choice1 == Menu::Choice::Options ) //menu opcji
+                            if ( choice1 == Menu::Choice::Options ) //Options menu
                             {
                                 area.CleanScreenCompletely();
                                 break;
@@ -92,7 +91,8 @@ void SnakeGame::StartGame()
                         }
                     }
                 menu.gotoxy( 9, previousChoice  + 4 ); //cleaning arrow
-                std::cout << " ";break;
+                std::cout << " ";
+                break;
 
                 }
             }
