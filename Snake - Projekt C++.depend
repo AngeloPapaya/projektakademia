@@ -1,0 +1,73 @@
+# depslib dependency file v1.0
+1707046386 source:c:\users\angelopapaya\documents\c++\snake - projekt c++\main.cpp
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+	"MyClass.h"
+
+1706553272 source:c:\users\angelopapaya\documents\c++\snake - projekt c++\testgry.cpp
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1706977525 c:\users\angelopapaya\documents\c++\snake - projekt c++\myclass.h
+
+1707046246 source:c:\users\angelopapaya\documents\c++\snake - projekt c++\myclass.cpp
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+	"MyClass.h"
+
+1708288815 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\main.cpp
+	"Menu.h"
+	"SnakeGame.h"
+
+1707561257 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\myclass.h
+
+1707562198 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\myclass.cpp
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+	"MyClass.h"
+
+1708893273 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1708460089 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.h
+	"Area.h"
+	"Menu.h"
+
+1708893269 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.h
+	"Area.h"
+
+1708893277 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1708889472 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\area.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1708891827 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\area.h
+	"Area.h"
+

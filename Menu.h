@@ -1,9 +1,11 @@
+#include "Area.h"
 #pragma once
-
 class Menu
 {
-public:
 
+public:
+    const static int firstOption = 0;
+    const static int lastOption = 2;
     enum class Choice
     {
         Play = 0,
@@ -21,14 +23,15 @@ public:
 
     };
 
-    enum class HowManyOptionsInMenu
-    {
-        FirstOpttionInMenu = 0,
-        LastOptionInMenu = 3
-    };
     void gotoxy (short x, short y);
     void PrintMenu();
     void PrintEndGameText();
+    void InitializeGameObjects();
+    void DrawMenu();
+    void KeyRightClicked(Menu::Choice choice, Area& area);
+    void HandlePlayOption(Area& area);
+    void HandleOptions(Area& area);
+    void HandleEndGame(Area& area);
 
 
 };

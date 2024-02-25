@@ -1,11 +1,10 @@
+#include "SnakeGame.h"
+#include "Menu.h"
+#include "Area.h"
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
-#include "SnakeGame.h"
-#include "Menu.h"
-#include "Area.h"
-
 
 
 void Menu::gotoxy (short x, short y)
@@ -50,4 +49,46 @@ void Menu::PrintEndGameText()
     std::cout << "~~ Do zobaczenia nastepnym razem! ~~";
     area.SetTextColor(7);
 }
+
+void Menu::KeyRightClicked(Menu::Choice choice, Area& area)
+{
+    switch (choice)
+    {
+        case Menu::Choice::Play:
+            Menu::HandlePlayOption(area);
+            break;
+        case Menu::Choice::Options:
+            Menu::HandleOptions(area);
+            break;
+        case Menu::Choice::EndGame:
+            Menu::HandleEndGame(area);
+            break;
+    }
+}
+
+void Menu::HandlePlayOption(Area& area)
+{
+    area.CleanScreenCompletely();
+    area.ChooseArea();
+    bool MainLoop = false;
+    // Tutaj mo¿e byæ dodatkowy kod dotycz¹cy gry Snake
+}
+
+void Menu::HandleOptions(Area& area)
+{
+
+    area.CleanScreenCompletely();
+    // Dodaj obs³ugê menu opcji, jeœli jest potrzebna
+}
+
+void Menu::HandleEndGame(Area& area)
+{
+
+    Menu menu;
+    area.CleanScreenCompletely();
+    menu.PrintEndGameText();
+    bool MenuLoop = false;
+    bool MainLoop = false;
+}
+
 

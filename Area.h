@@ -1,4 +1,5 @@
 #pragma once
+#include "Area.h"
 
 class Area
 {

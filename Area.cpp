@@ -1,10 +1,10 @@
+#include "SnakeGame.h"
+#include "Menu.h"
+#include "Area.h"
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
-#include "SnakeGame.h"
-#include "Menu.h"
-#include "Area.h"
 
 void Area::SetTextColor(int color)
 {
@@ -23,18 +23,21 @@ void Area::SetBackgroundColor(int color)
 }
 
 
-void Area::DrawArea(int width, int height) {
+void Area::DrawArea(int width, int height)
+{
         CleanScreenCompletely(); // Clean screen before drawing
         SetTextColor(7);
 
         // Drawing upper edge of the area
         for (int i = 0; i < width + 2; ++i)
             std::cout << "#";
-        std::cout << std::endl;
+            std::cout << std::endl;
 
         // Draw walls and area inside
-        for (int i = 0; i < height; ++i) {
-            for (int j = 0; j < width + 2; ++j) {
+        for (int i = 0; i < height; ++i)
+        {
+            for (int j = 0; j < width + 2; ++j)
+            {
                 if (j == 0 || j == width + 1)
                     std::cout << "#"; // Walls of area
                 else
@@ -46,8 +49,8 @@ void Area::DrawArea(int width, int height) {
         // Bottom edge of the area
         for (int i = 0; i < width + 2; ++i)
             std::cout << "#";
-        std::cout << std::endl;
-    }
+            std::cout << std::endl;
+}
 
 
 void Area::ChooseArea()
