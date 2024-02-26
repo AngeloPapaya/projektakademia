@@ -8,8 +8,10 @@ public:
         bool MainLoop = true;
         int choice;
         int previousChoice;
+
     const static int firstOption = 0;
     const static int lastOption = 2;
+
     enum class Choice
     {
         Play = 0,
