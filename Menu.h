@@ -28,10 +28,10 @@ public:
     void PrintEndGameText();
     void InitializeGameObjects();
     void DrawMenu();
-    void KeyRightClicked(Menu::Choice choice, Area& area);
+    void KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu);
     void HandlePlayOption(Area& area);
     void HandleOptions(Area& area);
-    void HandleEndGame(Area& area);
+    void HandleEndGame(Area& area, Menu& menu);
 
 
 };

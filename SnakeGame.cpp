@@ -54,8 +54,8 @@ void SnakeGame::StartGame()
                     case Menu::Keys::Right: //arrow right, if pressed go to option
 
 
-                    menu.KeyRightClicked(static_cast<Menu::Choice>(choice), area);
-                    break;
+                        menu.KeyRightClicked(static_cast<Menu::Choice>(choice), area, menu);
+                        break;
 
 //                            Menu::Choice choice1 = static_cast<Menu::Choice>(choice);
 //

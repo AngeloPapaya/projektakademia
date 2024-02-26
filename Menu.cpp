@@ -50,7 +50,7 @@ void Menu::PrintEndGameText()
     area.SetTextColor(7);
 }
 
-void Menu::KeyRightClicked(Menu::Choice choice, Area& area)
+void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu)
 {
     switch (choice)
     {
@@ -61,7 +61,7 @@ void Menu::KeyRightClicked(Menu::Choice choice, Area& area)
             Menu::HandleOptions(area);
             break;
         case Menu::Choice::EndGame:
-            Menu::HandleEndGame(area);
+            Menu::HandleEndGame(area, menu);
             break;
     }
 }
@@ -81,10 +81,8 @@ void Menu::HandleOptions(Area& area)
     // Dodaj obs³ugê menu opcji, jeœli jest potrzebna
 }
 
-void Menu::HandleEndGame(Area& area)
+void Menu::HandleEndGame(Area& area, Menu& menu)
 {
-
-    Menu menu;
     area.CleanScreenCompletely();
     menu.PrintEndGameText();
     bool MenuLoop = false;
