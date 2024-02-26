@@ -15,6 +15,7 @@ void Menu::gotoxy (short x, short y)
 
 void Menu::PrintMenu()
 {
+    system( "cls" );
     Area area;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     area.SetTextColor(10);
@@ -55,7 +56,7 @@ void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu)
     switch (choice)
     {
         case Menu::Choice::Play:
-            Menu::HandlePlayOption(area);
+            Menu::HandlePlayOption(area, menu);
             break;
         case Menu::Choice::Options:
             Menu::HandleOptions(area);
@@ -66,27 +67,92 @@ void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu)
     }
 }
 
-void Menu::HandlePlayOption(Area& area)
+void Menu::HandlePlayOption(Area& area, Menu& menu)
 {
     area.CleanScreenCompletely();
     area.ChooseArea();
-    bool MainLoop = false;
-    // Tutaj mo¿e byæ dodatkowy kod dotycz¹cy gry Snake
+    MenuLoop = false;
 }
 
 void Menu::HandleOptions(Area& area)
 {
-
     area.CleanScreenCompletely();
-    // Dodaj obs³ugê menu opcji, jeœli jest potrzebna
 }
 
 void Menu::HandleEndGame(Area& area, Menu& menu)
 {
     area.CleanScreenCompletely();
     menu.PrintEndGameText();
-    bool MenuLoop = false;
-    bool MainLoop = false;
+    MenuLoop = false;
+    MainLoop = false;
+}
+
+void Menu::HandleArrowKeys(Menu &menu, Area& area)
+{
+    switch( getch() )
+    {
+                case 224:
+                    switch( static_cast<Menu::Keys>(getch()) )
+                    {
+                        case Menu::Keys::Up:              //arrows up, options (currently only 3)
+                            if ( Menu::firstOption < menu.choice )
+                            menu.choice--;
+                            else menu.choice = Menu::lastOption;
+                            break;
+
+                        case Menu::Keys::Down:                    //arrows down, options (currently only 3)
+                            if ( menu.choice < Menu::lastOption )
+                            menu.choice++;
+                            else menu.choice = Menu::firstOption;
+                            break;
+
+
+                        case Menu::Keys::Right: //arrow right, if pressed go to option
+                            menu.KeyRightClicked(static_cast<Menu::Choice>(menu.choice), area, menu);
+                            break;
+
+                        case Menu::Keys::Left: //left arrow cancel, and going back to menu
+                        {
+                                menu.choice = 0;
+                                area.CleanScreenCompletely();
+                                menu.PrintMenu();
+                                break;
+                        }
+                    }
+        menu.gotoxy( 9, menu.previousChoice  + 4 ); //cleaning arrow
+        std::cout << " ";
+        break;
+    }
+}
+
+void Menu::HandleMenuLoop(Menu& menu, Area& area)
+{
+     while (menu.MenuLoop)   //arrows (up, down)
+       {
+            menu.gotoxy( 9, menu.choice  + 4 );          //arrows drawing
+            std::cout << static_cast < char >( 16 );
+            menu.previousChoice = menu.choice;
+            menu.HandleArrowKeys(menu, area);
+
+        }
+}
+
+void Menu::ResetMenu(Menu& menu)
+{
+    menu.choice = 0;
+    menu.previousChoice = menu.choice;
+    menu.MenuLoop = true;
+}
+
+void Menu::DisplayMenu(Menu& menu)
+{
+    system("cls");
+    menu.PrintMenu();
+}
+
+void Menu::HandleMenu(Menu& menu, Area& area)
+{
+    menu.HandleMenuLoop(menu, area);
 }
 
 

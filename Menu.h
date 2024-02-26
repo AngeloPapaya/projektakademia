@@ -4,6 +4,10 @@ class Menu
 {
 
 public:
+        bool MenuLoop = true;
+        bool MainLoop = true;
+        int choice;
+        int previousChoice;
     const static int firstOption = 0;
     const static int lastOption = 2;
     enum class Choice
@@ -29,9 +33,13 @@ public:
     void InitializeGameObjects();
     void DrawMenu();
     void KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu);
-    void HandlePlayOption(Area& area);
+    void HandlePlayOption(Area& area, Menu& menu);
     void HandleOptions(Area& area);
     void HandleEndGame(Area& area, Menu& menu);
-
+    void HandleArrowKeys(Menu &menu, Area& area);
+    void HandleMenuLoop(Menu& menu, Area& area);
+    void ResetMenu(Menu& menu);
+    void DisplayMenu(Menu& menu);
+    void HandleMenu(Menu& menu, Area& area);
 
 };

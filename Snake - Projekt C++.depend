@@ -34,7 +34,7 @@
 	<windows.h>
 	"MyClass.h"
 
-1708893273 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.cpp
+1708969488 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.cpp
 	"SnakeGame.h"
 	"Menu.h"
 	"Area.h"
@@ -43,14 +43,14 @@
 	<conio.h>
 	<windows.h>
 
-1708460089 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.h
+1708969084 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.h
 	"Area.h"
 	"Menu.h"
 
-1708967225 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.h
+1708969896 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.h
 	"Area.h"
 
-1708967328 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.cpp
+1708969905 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.cpp
 	"SnakeGame.h"
 	"Menu.h"
 	"Area.h"
