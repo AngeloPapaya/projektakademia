@@ -71,7 +71,7 @@ void Menu::HandlePlayOption(Area& area, Menu& menu)
 {
     area.CleanScreenCompletely();
     area.ChooseArea();
-    MenuLoop = false;
+    MainLoop = false;
 }
 
 void Menu::HandleOptions(Area& area)
@@ -127,6 +127,7 @@ void Menu::HandleArrowKeys(Menu &menu, Area& area)
 
 void Menu::HandleMenuLoop(Menu& menu, Area& area)
 {
+
      while (menu.MenuLoop)   //arrows (up, down)
        {
             menu.gotoxy( 9, menu.choice  + 4 );          //arrows drawing
