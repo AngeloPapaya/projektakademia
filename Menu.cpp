@@ -1,6 +1,7 @@
 #include "SnakeGame.h"
 #include "Menu.h"
 #include "Area.h"
+#include "Snake.h"
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
@@ -51,12 +52,12 @@ void Menu::PrintEndGameText()
     area.SetTextColor(7);
 }
 
-void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu)
+void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu, Snake& snake)
 {
     switch (choice)
     {
         case Menu::Choice::Play:
-            Menu::HandlePlayOption(area, menu);
+            Menu::HandlePlayOption(area, menu, snake);
             break;
         case Menu::Choice::Options:
             Menu::HandleOptions(area);
@@ -67,10 +68,21 @@ void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu)
     }
 }
 
-void Menu::HandlePlayOption(Area& area, Menu& menu)
+void Menu::HandlePlayOption(Area& area, Menu& menu, Snake& snake)
 {
+    //snake.Name(snake);
     area.CleanScreenCompletely();
-    area.ChooseArea();
+    area.ChooseArea(area);
+
+        snake.Setup(area);
+
+             while (!snake.gameOver)
+             {
+              snake.Draw(area);
+              snake.Input();
+              snake.Logic(area);
+              Sleep(100); //sleep(10);
+             }
     MainLoop = false;
 }
 
@@ -87,7 +99,7 @@ void Menu::HandleEndGame(Area& area, Menu& menu)
     MainLoop = false;
 }
 
-void Menu::HandleArrowKeys(Menu &menu, Area& area)
+void Menu::HandleArrowKeys(Menu &menu, Area& area, Snake& snake)
 {
     switch( getch() )
     {
@@ -108,7 +120,7 @@ void Menu::HandleArrowKeys(Menu &menu, Area& area)
 
 
                         case Menu::Keys::Right: //arrow right, if pressed go to option
-                            menu.KeyRightClicked(static_cast<Menu::Choice>(menu.choice), area, menu);
+                            menu.KeyRightClicked(static_cast<Menu::Choice>(menu.choice), area, menu, snake);
                             break;
 
                         case Menu::Keys::Left: //left arrow cancel, and going back to menu
@@ -125,7 +137,7 @@ void Menu::HandleArrowKeys(Menu &menu, Area& area)
     }
 }
 
-void Menu::HandleMenuLoop(Menu& menu, Area& area)
+void Menu::HandleMenuLoop(Menu& menu, Area& area, Snake& snake)
 {
 
      while (menu.MenuLoop)   //arrows (up, down)
@@ -133,7 +145,7 @@ void Menu::HandleMenuLoop(Menu& menu, Area& area)
             menu.gotoxy( 9, menu.choice  + 4 );          //arrows drawing
             std::cout << static_cast < char >( 16 );
             menu.previousChoice = menu.choice;
-            menu.HandleArrowKeys(menu, area);
+            menu.HandleArrowKeys(menu, area, snake);
 
         }
 }
@@ -151,9 +163,9 @@ void Menu::DisplayMenu(Menu& menu)
     menu.PrintMenu();
 }
 
-void Menu::HandleMenu(Menu& menu, Area& area)
+void Menu::HandleMenu(Menu& menu, Area& area, Snake& snake)
 {
-    menu.HandleMenuLoop(menu, area);
+    menu.HandleMenuLoop(menu, area, snake);
 }
 
 

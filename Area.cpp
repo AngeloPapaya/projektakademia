@@ -23,56 +23,23 @@ void Area::SetBackgroundColor(int color)
 }
 
 
-void Area::DrawArea(int width, int height)
+void Area::ChooseArea(Area& area)
 {
-        CleanScreenCompletely(); // Clean screen before drawing
-        SetTextColor(7);
 
-        // Drawing upper edge of the area
-        for (int i = 0; i < width + 2; ++i)
-            std::cout << "#";
-            std::cout << std::endl;
-
-        // Draw walls and area inside
-        for (int i = 0; i < height; ++i)
-        {
-            for (int j = 0; j < width + 2; ++j)
-            {
-                if (j == 0 || j == width + 1)
-                    std::cout << "#"; // Walls of area
-                else
-                    std::cout << " "; // Area inside
-            }
-            std::cout << std::endl;
-        }
-
-        // Bottom edge of the area
-        for (int i = 0; i < width + 2; ++i)
-            std::cout << "#";
-            std::cout << std::endl;
-}
-
-
-void Area::ChooseArea()
-{
-    int width, height;
 
     do {
         SetTextColor(7);
 
         std::cout << "Podaj szerokosc obszaru Snake'a (maksymalnie 20): ";
-        std::cin >> width;
+        std::cin >> area.width;
 
         std::cout << "Podaj dlugosc obszaru Snake'a (maksymalnie 40): ";
-        std::cin >> height;
+        std::cin >> area.height;
 
-        if (width <= 0 || height <= 0 || width > 20 || height > 40)
+        if (area.width <= 0 || area.height <= 0 || area.width > 20 || area.height > 40)
         {
-            std::cout << "Niepoprawne wymiary obszaru. Podaj szerokosc i dlugosc od 1 do 15.\n";
+            std::cout << "Niepoprawne wymiary obszaru. Podaj szerokosc od 1 do 20 i dlugosc od 1 do 40.\n";
         }
-        else
-        {
-            DrawArea(width, height);
-        }
-    } while (width <= 0 || height <= 0 || width > 20 || height > 40);
+
+    } while (area.width <= 0 || area.height <= 0 || area.width > 20 || area.height > 40);
 }

@@ -9,19 +9,18 @@
 
 void SnakeGame::StartGame()
 {
-        SnakeGame snakeGame;
-
-        Menu menu;
-        Area area;
+    SnakeGame snakeGame;
+    Menu menu;
+    Area area;
+    Snake snake;
 
         while(menu.MainLoop) //main loop of the program
         {
             menu.ResetMenu(menu);
             menu.DisplayMenu(menu);
-            menu.HandleMenu(menu, area);
+            menu.HandleMenu(menu, area, snake);
         }
 }
-
 
 
 

@@ -1,4 +1,5 @@
 #include "Area.h"
+#include "Snake.h"
 #pragma once
 class Menu
 {
@@ -8,6 +9,7 @@ public:
         bool MainLoop = true;
         int choice;
         int previousChoice;
+
 
     const static int firstOption = 0;
     const static int lastOption = 2;
@@ -34,14 +36,14 @@ public:
     void PrintEndGameText();
     void InitializeGameObjects();
     void DrawMenu();
-    void KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu);
-    void HandlePlayOption(Area& area, Menu& menu);
+    void KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu,Snake& snake);
+    void HandlePlayOption(Area& area, Menu& menu, Snake& snake);
     void HandleOptions(Area& area);
     void HandleEndGame(Area& area, Menu& menu);
-    void HandleArrowKeys(Menu &menu, Area& area);
-    void HandleMenuLoop(Menu& menu, Area& area);
+    void HandleArrowKeys(Menu &menu, Area& area, Snake& snake);
+    void HandleMenuLoop(Menu& menu, Area& area, Snake& snake);
     void ResetMenu(Menu& menu);
     void DisplayMenu(Menu& menu);
-    void HandleMenu(Menu& menu, Area& area);
+    void HandleMenu(Menu& menu, Area& area, Snake& snake);
 
 };
