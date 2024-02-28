@@ -21,7 +21,7 @@
 	<windows.h>
 	"MyClass.h"
 
-1708288815 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\main.cpp
+1709150261 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\main.cpp
 	"Menu.h"
 	"SnakeGame.h"
 
@@ -34,7 +34,25 @@
 	<windows.h>
 	"MyClass.h"
 
-1708974134 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.cpp
+1709150749 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	"Snake.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1709146930 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.h
+	"Area.h"
+	"Menu.h"
+
+1709146899 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.h
+	"Area.h"
+	"Snake.h"
+
+1709146920 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.cpp
 	"SnakeGame.h"
 	"Menu.h"
 	"Area.h"
@@ -43,14 +61,7 @@
 	<conio.h>
 	<windows.h>
 
-1708969084 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.h
-	"Area.h"
-	"Menu.h"
-
-1708969896 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\menu.h
-	"Area.h"
-
-1708969905 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snakegame.cpp
+1709150309 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\area.cpp
 	"SnakeGame.h"
 	"Menu.h"
 	"Area.h"
@@ -59,15 +70,18 @@
 	<conio.h>
 	<windows.h>
 
-1708889472 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\area.cpp
+1709146889 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\area.h
+
+1709150948 source:c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snake.cpp
 	"SnakeGame.h"
 	"Menu.h"
 	"Area.h"
+	"Snake.h"
 	<iostream>
 	<stdio.h>
 	<conio.h>
 	<windows.h>
 
-1708891827 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\area.h
+1709150992 c:\users\angelopapaya\documents\c++ codeblocks\snake - projekt c++\snake.h
 	"Area.h"
 

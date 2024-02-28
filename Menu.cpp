@@ -168,4 +168,3 @@ void Menu::HandleMenu(Menu& menu, Area& area, Snake& snake)
     menu.HandleMenuLoop(menu, area, snake);
 }
 
-

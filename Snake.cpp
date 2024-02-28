@@ -103,7 +103,7 @@ void Snake::Logic(Area &area)
 
 void Snake::Draw(Area& area)
 {
- system("cls"); //system("clear");
+    system("cls"); //system("clear");
         for (int i = 0; i < area.width+2; i++)
             std::cout << "#";
             std::cout << "\n";
@@ -126,7 +126,7 @@ void Snake::Draw(Area& area)
      if (tailX[k] == j && tailY[k] == i)
      {
       std::cout << "o";
-      print = true;
+      print = false;
      }
     }
     if (!print)

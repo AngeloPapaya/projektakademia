@@ -5,9 +5,9 @@ class Snake
 public:
 
 bool gameOver;
-int x, y, fruitX, fruitY, score;
+int x=0, y=0, fruitX=0, fruitY=0, score=0;
 int tailX[100], tailY[100];
-int nTail;
+int nTail=0;
 
 enum eDirecton
 {

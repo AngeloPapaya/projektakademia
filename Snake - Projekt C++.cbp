@@ -36,6 +36,8 @@
 		<Unit filename="Area.h" />
 		<Unit filename="Menu.cpp" />
 		<Unit filename="Menu.h" />
+		<Unit filename="Snake.cpp" />
+		<Unit filename="Snake.h" />
 		<Unit filename="SnakeGame.cpp" />
 		<Unit filename="SnakeGame.h" />
 		<Unit filename="main.cpp" />
