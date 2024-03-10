@@ -8,8 +8,6 @@
 #include <windows.h>
 
 
-
-
 void Snake::Input()
 {
  if (_kbhit())
@@ -48,6 +46,8 @@ void Snake::Setup(Area& area)
 
 void Snake::Logic(Area &area)
 {
+    tailX.resize(100, 0); // Inicjalizacja wektora tailX o rozmiarze 100 zerami
+    tailY.resize(100, 0);
      int prevX = tailX[0];
      int prevY = tailY[0];
      int prev2X, prev2Y;
@@ -88,7 +88,7 @@ void Snake::Logic(Area &area)
 
  for (int i = 0; i < nTail; i++)
     if (tailX[i] == x && tailY[i] == y)
-        gameOver = true;
+    gameOver = true;
 
  if (x == fruitX && y == fruitY)
  {
@@ -103,6 +103,7 @@ void Snake::Logic(Area &area)
 
 void Snake::Draw(Area& area)
 {
+    Menu menu;
     system("cls"); //system("clear");
         for (int i = 0; i < area.width+2; i++)
             std::cout << "#";
@@ -126,11 +127,11 @@ void Snake::Draw(Area& area)
      if (tailX[k] == j && tailY[k] == i)
      {
       std::cout << "o";
-      print = false;
+      print = true;
      }
     }
     if (!print)
-     std::cout << " ";
+    std::cout << " ";
    }
 
 
@@ -143,5 +144,46 @@ void Snake::Draw(Area& area)
  for (int i = 0; i < area.width+2; i++)
     std::cout << "#";
     std::cout << "\n";
-    std::cout << "Score: " << score << "\n";
+    std::cout << name << "'s score: ";
+    area.SetTextColor(6);
+    std::cout << score << "\n";
+    area.SetTextColor(7);
+    //std::cout << "X " << x << " " << "Y " << y << "\n";
+    std::cout << "Nacisnij ";
+    area.SetTextColor(6);
+    std::cout << "x";
+    area.SetTextColor(7);
+    std::cout << " zeby zakonczyc gre.";
 }
+
+void Snake::Name(Area& area)
+{
+    COORD pos = {12,4};
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
+    area.SetTextColor(10);
+    std::cout << "Podaj swoje imie: ";
+    area.SetTextColor(7);
+    std::cin >> name;
+    area.CleanScreenCompletely();
+}
+
+void Snake::EndGameScore(Area& area)
+
+{
+    Menu menu;
+    menu.gotoxy(24,2);
+    area.SetTextColor(13);
+    std::cout << "Your score is: ";
+    area.SetTextColor(14);
+    std::cout << score << "\n";
+    area.SetTextColor(13);
+    menu.gotoxy(22,3);
+    std::cout << "Good luck next time!" << "\n";
+    area.SetTextColor(7);
+
+
+
+}
+
+
+

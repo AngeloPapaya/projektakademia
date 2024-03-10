@@ -4,8 +4,8 @@
 
 class SnakeGame
 {
-
 public:
     void StartGame();
 
 };
+

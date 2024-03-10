@@ -1,10 +1,11 @@
 #include "Area.h"
 #include "Snake.h"
+#include <iostream>
 #pragma once
 class Menu
 {
-
 public:
+        std::string name;
         bool MenuLoop = true;
         bool MainLoop = true;
         int choice;
@@ -31,19 +32,21 @@ public:
 
     };
 
+
     void gotoxy (short x, short y);
-    void PrintMenu();
-    void PrintEndGameText();
-    void InitializeGameObjects();
-    void DrawMenu();
+    void PrintMenu(Area& area);
+    void PrintEndGameText(Area& area);
     void KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu,Snake& snake);
-    void HandlePlayOption(Area& area, Menu& menu, Snake& snake);
+    void HandlePlayOption(Area& area, Snake& snake);
     void HandleOptions(Area& area);
     void HandleEndGame(Area& area, Menu& menu);
     void HandleArrowKeys(Menu &menu, Area& area, Snake& snake);
-    void HandleMenuLoop(Menu& menu, Area& area, Snake& snake);
-    void ResetMenu(Menu& menu);
-    void DisplayMenu(Menu& menu);
+    void HandleMenuLoop(Menu& menu,Area& area, Snake& snake);
+    void ResetMenu();
+    void DisplayMenu(Area& area);
     void HandleMenu(Menu& menu, Area& area, Snake& snake);
 
+
+
 };
+

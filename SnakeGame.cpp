@@ -16,11 +16,12 @@ void SnakeGame::StartGame()
 
         while(menu.MainLoop) //main loop of the program
         {
-            menu.ResetMenu(menu);
-            menu.DisplayMenu(menu);
+            menu.ResetMenu();
+            menu.DisplayMenu(area);
             menu.HandleMenu(menu, area, snake);
         }
 }
+
 
 
 

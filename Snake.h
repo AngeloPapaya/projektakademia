@@ -1,15 +1,20 @@
 #include "Area.h"
+#include <vector>
+#include <string>
 #pragma once
 class Snake
 {
 public:
 
+std::string name;
+std::vector<int> tailX;
+std::vector<int> tailY;
 bool gameOver;
-int x=0, y=0, fruitX=0, fruitY=0, score=0;
-int tailX[100], tailY[100];
+int x,y,fruitX, fruitY, score;
+
 int nTail=0;
 
-enum eDirecton
+enum Directon
 {
     STOP = 0,
     LEFT,
@@ -18,11 +23,15 @@ enum eDirecton
     DOWN
 };
 
-    eDirecton dir;
+    Directon dir;
     void Input();
     void Setup(Area& area);
     void Logic(Area& area);
     void Draw(Area& area);
+    void Name(Area& area);
+    void EndGameScore(Area& area);
+
 
 
 };
+

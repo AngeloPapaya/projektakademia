@@ -14,10 +14,10 @@ void Menu::gotoxy (short x, short y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
 }
 
-void Menu::PrintMenu()
+void Menu::PrintMenu(Area& area)
 {
     system( "cls" );
-    Area area;
+    //Area area;
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     area.SetTextColor(10);
     gotoxy(15,0);
@@ -41,9 +41,9 @@ void Menu::PrintMenu()
     area.SetTextColor(4);
 }
 
-void Menu::PrintEndGameText()
+void Menu::PrintEndGameText(Area& area)
 {
-    Area area;
+    //Area area;
     system( "cls" );
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     area.SetTextColor(11);
@@ -57,7 +57,7 @@ void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu, Snake& s
     switch (choice)
     {
         case Menu::Choice::Play:
-            Menu::HandlePlayOption(area, menu, snake);
+            Menu::HandlePlayOption(area, snake);
             break;
         case Menu::Choice::Options:
             Menu::HandleOptions(area);
@@ -68,21 +68,27 @@ void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu, Snake& s
     }
 }
 
-void Menu::HandlePlayOption(Area& area, Menu& menu, Snake& snake)
+void Menu::HandlePlayOption(Area& area, Snake& snake)
 {
-    //snake.Name(snake);
+
     area.CleanScreenCompletely();
-    area.ChooseArea(area);
+    snake.Name(area);
+    area.SetAreaSize(area);
+    snake.Setup(area);
 
-        snake.Setup(area);
 
-             while (!snake.gameOver)
-             {
-              snake.Draw(area);
-              snake.Input();
-              snake.Logic(area);
-              Sleep(100); //sleep(10);
-             }
+do
+{
+    snake.Draw(area);
+    snake.Input();
+    snake.Logic(area);
+    Sleep(100); //sleep(10);
+} while (!snake.gameOver);
+
+    area.CleanScreenCompletely();
+    //PrintEndGameText(area);
+    snake.EndGameScore(area);
+    MenuLoop = false;
     MainLoop = false;
 }
 
@@ -94,16 +100,19 @@ void Menu::HandleOptions(Area& area)
 void Menu::HandleEndGame(Area& area, Menu& menu)
 {
     area.CleanScreenCompletely();
-    menu.PrintEndGameText();
+    menu.PrintEndGameText(area);
     MenuLoop = false;
     MainLoop = false;
 }
 
 void Menu::HandleArrowKeys(Menu &menu, Area& area, Snake& snake)
 {
-    switch( getch() )
+    int key = getch();
+    Menu::Keys firstKeyPress = static_cast<Menu::Keys>(key);
+
+    switch( firstKeyPress )
     {
-                case 224:
+                case Menu::Keys::Keyboard:
                     switch( static_cast<Menu::Keys>(getch()) )
                     {
                         case Menu::Keys::Up:              //arrows up, options (currently only 3)
@@ -127,7 +136,7 @@ void Menu::HandleArrowKeys(Menu &menu, Area& area, Snake& snake)
                         {
                                 menu.choice = 0;
                                 area.CleanScreenCompletely();
-                                menu.PrintMenu();
+                                menu.PrintMenu(area);
                                 break;
                         }
                     }
@@ -150,21 +159,24 @@ void Menu::HandleMenuLoop(Menu& menu, Area& area, Snake& snake)
         }
 }
 
-void Menu::ResetMenu(Menu& menu)
+void Menu::ResetMenu()
 {
-    menu.choice = 0;
-    menu.previousChoice = menu.choice;
-    menu.MenuLoop = true;
+
+    choice = 0;
+    previousChoice = choice;
+    MenuLoop = true;
 }
 
-void Menu::DisplayMenu(Menu& menu)
+void Menu::DisplayMenu(Area& area)
 {
     system("cls");
-    menu.PrintMenu();
+    PrintMenu(area);
 }
 
 void Menu::HandleMenu(Menu& menu, Area& area, Snake& snake)
 {
     menu.HandleMenuLoop(menu, area, snake);
 }
+
+
 

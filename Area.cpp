@@ -23,9 +23,8 @@ void Area::SetBackgroundColor(int color)
 }
 
 
-void Area::ChooseArea(Area& area)
+void Area::SetAreaSize(Area& area)
 {
-
 
     do {
         SetTextColor(7);
@@ -43,3 +42,4 @@ void Area::ChooseArea(Area& area)
 
     } while (area.width <= 0 || area.height <= 0 || area.width > 20 || area.height > 40);
 }
+

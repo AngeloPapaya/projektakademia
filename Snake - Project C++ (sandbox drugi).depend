@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1710080488 source:c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\main.cpp
+	"Menu.h"
+	"SnakeGame.h"
+
+1710100325 c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\menu.h
+	"Area.h"
+	"Snake.h"
+	<iostream>
+
+1710082206 c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\area.h
+
+1710101313 c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\snake.h
+	"Area.h"
+	<vector>
+	<string>
+
+1710080564 c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\snakegame.h
+	"Area.h"
+	"Menu.h"
+
+1710101316 source:c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\menu.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	"Snake.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1710101841 source:c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\snake.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	"Snake.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1710083826 source:c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\snakegame.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
+1710082206 source:c:\users\angelopapaya\documents\c++\snake - project c++ (sandbox drugi)\area.cpp
+	"SnakeGame.h"
+	"Menu.h"
+	"Area.h"
+	<iostream>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+
