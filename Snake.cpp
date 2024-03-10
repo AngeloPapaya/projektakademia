@@ -144,7 +144,7 @@ void Snake::Draw(Area& area)
  for (int i = 0; i < area.width+2; i++)
     std::cout << "#";
     std::cout << "\n";
-    std::cout << name << "'s score: ";
+    std::cout << name << " punkty: ";
     area.SetTextColor(6);
     std::cout << score << "\n";
     area.SetTextColor(7);
@@ -153,7 +153,7 @@ void Snake::Draw(Area& area)
     area.SetTextColor(6);
     std::cout << "x";
     area.SetTextColor(7);
-    std::cout << " zeby zakonczyc gre.";
+    std::cout << ", aby zakonczyc gre.";
 }
 
 void Snake::Name(Area& area)
@@ -173,12 +173,12 @@ void Snake::EndGameScore(Area& area)
     Menu menu;
     menu.gotoxy(24,2);
     area.SetTextColor(13);
-    std::cout << "Your score is: ";
+    std::cout << "Twoje punkty to: ";
     area.SetTextColor(14);
     std::cout << score << "\n";
     area.SetTextColor(13);
     menu.gotoxy(22,3);
-    std::cout << "Good luck next time!" << "\n";
+    std::cout << "Powodzenia nastepnym razem!" << "\n";
     area.SetTextColor(7);
 
 
