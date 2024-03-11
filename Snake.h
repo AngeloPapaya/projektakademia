@@ -25,11 +25,11 @@ enum Directon
 
     Directon dir;
     void Input();
-    void Setup(Area& area);
-    void Logic(Area& area);
-    void Draw(Area& area);
-    void Name(Area& area);
-    void EndGameScore(Area& area);
+    void Setup (Area& area) ;
+    void Logic (Area& area) ;
+    void Draw (Area& area) ;
+    void Name (Area& area) ;
+    void EndGameScore (Area& area) ;
 
 
 

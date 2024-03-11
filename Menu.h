@@ -33,10 +33,10 @@ public:
     };
 
 
-    void gotoxy (short x, short y);
+    static void gotoxy (short x, short y);
     void PrintMenu(Area& area);
     void PrintEndGameText(Area& area);
-    void KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu,Snake& snake);
+    void ActionKey(Menu::Choice choice, Area& area, Menu& menu,Snake& snake);
     void HandlePlayOption(Area& area, Snake& snake);
     void HandleOptions(Area& area);
     void HandleEndGame(Area& area, Menu& menu);

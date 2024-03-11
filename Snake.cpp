@@ -44,7 +44,7 @@ void Snake::Setup(Area& area)
      score = 0;
 }
 
-void Snake::Logic(Area &area)
+void Snake::Logic(Area& area)
 {
     tailX.resize(100, 0); // Inicjalizacja wektora tailX o rozmiarze 100 zerami
     tailY.resize(100, 0);
@@ -79,8 +79,11 @@ void Snake::Logic(Area &area)
         default:
               break;
             }
- //if (x > width || x < 0 || y > height || y < 0)
- // gameOver = true;
+// if (x >= area.width || x < 0 || y >= area.height || y < 0) snake outside wall -> ends game
+//  {
+//     gameOver = true;}
+//  }
+
  if (x >= area.width) x = 0;
     else if (x < 0) x = area.width - 1;
  if (y >= area.height) y = 0;
@@ -103,7 +106,6 @@ void Snake::Logic(Area &area)
 
 void Snake::Draw(Area& area)
 {
-    Menu menu;
     system("cls"); //system("clear");
         for (int i = 0; i < area.width+2; i++)
             std::cout << "#";
@@ -170,14 +172,13 @@ void Snake::Name(Area& area)
 void Snake::EndGameScore(Area& area)
 
 {
-    Menu menu;
-    menu.gotoxy(24,2);
+    Menu::gotoxy(24,2);
     area.SetTextColor(13);
     std::cout << "Twoje punkty to: ";
     area.SetTextColor(14);
     std::cout << score << "\n";
     area.SetTextColor(13);
-    menu.gotoxy(22,3);
+    Menu::gotoxy(22,3);
     std::cout << "Powodzenia nastepnym razem!" << "\n";
     area.SetTextColor(7);
 

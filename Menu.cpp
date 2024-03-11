@@ -52,7 +52,7 @@ void Menu::PrintEndGameText(Area& area)
     area.SetTextColor(7);
 }
 
-void Menu::KeyRightClicked(Menu::Choice choice, Area& area, Menu& menu, Snake& snake)
+void Menu::ActionKey(Menu::Choice choice, Area& area, Menu& menu, Snake& snake)
 {
     switch (choice)
     {
@@ -129,7 +129,7 @@ void Menu::HandleArrowKeys(Menu &menu, Area& area, Snake& snake)
 
 
                         case Menu::Keys::Right: //arrow right, if pressed go to option
-                            menu.KeyRightClicked(static_cast<Menu::Choice>(menu.choice), area, menu, snake);
+                            menu.ActionKey(static_cast<Menu::Choice>(menu.choice), area, menu, snake);
                             break;
 
                         case Menu::Keys::Left: //left arrow cancel, and going back to menu
