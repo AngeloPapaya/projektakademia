@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <conio.h>
+#include <algorithm>
 #include <windows.h>
 
 
@@ -46,8 +47,8 @@ void Snake::Setup(Area& area)
 
 void Snake::Logic(Area& area)
 {
-    tailX.resize(100, 0); // Inicjalizacja wektora tailX o rozmiarze 100 zerami
-    tailY.resize(100, 0);
+    tailX.resize(maxTailLength, 0); // Inicjalizacja wektora tailX o rozmiarze 100 zerami
+   tailY.resize(maxTailLength, 0);
      int prevX = tailX[0];
      int prevY = tailY[0];
      int prev2X, prev2Y;
@@ -91,26 +92,41 @@ void Snake::Logic(Area& area)
 
  for (int i = 0; i < nTail; i++)
     if (tailX[i] == x && tailY[i] == y)
-    gameOver = true;
+    {
+        gameOver = true;
+        break;
+    }
+//auto tailCollision = std::find_if(tailX.begin(), tailX.begin() + nTail, [&](int tailPosX) { return tailPosX == x; });
+//    if (tailCollision != tailX.begin() + nTail && tailY[std::distance(tailX.begin(), tailCollision)] == y)
+//        {
+//        gameOver = true;
+//        return;
+//        }
 
  if (x == fruitX && y == fruitY)
  {
       score += 10;
       fruitX = rand() % area.width;
       fruitY = rand() % area.height;
-      nTail++;
+      if (nTail < maxTailLength )
+        {
+            nTail++;
+        }
+        else
+        {
+            gameOver = true;
+        }
  }
 }
-
-
 
 void Snake::Draw(Area& area)
 {
     system("cls"); //system("clear");
         for (int i = 0; i < area.width+2; i++)
+        {
             std::cout << "#";
             std::cout << "\n";
-
+        }
  for (int i = 0; i < area.height; i++)
  {
   for (int j = 0; j < area.width; j++)
@@ -128,15 +144,13 @@ void Snake::Draw(Area& area)
     {
      if (tailX[k] == j && tailY[k] == i)
      {
-      std::cout << "o";
-      print = true;
+        std::cout << "o";
+        print = true;
      }
     }
     if (!print)
     std::cout << " ";
    }
-
-
    if (j == area.width - 1)
     std::cout << "#";
   }
@@ -146,6 +160,10 @@ void Snake::Draw(Area& area)
  for (int i = 0; i < area.width+2; i++)
     std::cout << "#";
     std::cout << "\n";
+    std::cout << "Maksymalna dlugosc weza to: ";
+    area.SetTextColor(6);
+    std::cout << maxTailLength<< "\n";
+    area.SetTextColor(7);
     std::cout << name << " punkty: ";
     area.SetTextColor(6);
     std::cout << score << "\n";

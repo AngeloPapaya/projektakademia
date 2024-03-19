@@ -25,21 +25,26 @@ void Area::SetBackgroundColor(int color)
 
 void Area::SetAreaSize(Area& area)
 {
-
-    do {
+        do
+        {
         SetTextColor(7);
-
-        std::cout << "Podaj szerokosc obszaru Snake'a (maksymalnie 20): ";
+        std::cout << "Podaj szerokosc obszaru Snake'a (maksymalnie 60): ";
         std::cin >> area.width;
+            if (area.width < 10 || area.width > 60)
+            {
+                std::cout << "Niepoprawna szerokosc obszaru, prosze podaj wymiary od 10 do 60" << "\n";
+            }
+        } while (area.width < 10 || area.width > 60);
 
+        do
+        {
         std::cout << "Podaj dlugosc obszaru Snake'a (maksymalnie 40): ";
         std::cin >> area.height;
+            if (area.height < 10 || area.height > 40)
+            {
+                std::cout << "Niepoprawna dlugosc obszaru, prosze podaj wymiary od 10 do 40" << "\n";
+            }
+        } while (area.height < 10 || area.height > 40);
 
-        if (area.width <= 0 || area.height <= 0 || area.width > 20 || area.height > 40)
-        {
-            std::cout << "Niepoprawne wymiary obszaru. Podaj szerokosc od 1 do 20 i dlugosc od 1 do 40.\n";
-        }
-
-    } while (area.width <= 0 || area.height <= 0 || area.width > 20 || area.height > 40);
 }
 

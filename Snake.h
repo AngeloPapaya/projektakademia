@@ -1,5 +1,6 @@
 #include "Area.h"
 #include <vector>
+//#include <list>
 #include <string>
 #pragma once
 class Snake
@@ -11,6 +12,7 @@ std::vector<int> tailX;
 std::vector<int> tailY;
 bool gameOver;
 int x,y,fruitX, fruitY, score;
+int maxTailLength = 12;
 
 int nTail=0;
 
@@ -20,7 +22,7 @@ enum Directon
     LEFT,
     RIGHT,
     UP,
-    DOWN
+    DOWN,
 };
 
     Directon dir;

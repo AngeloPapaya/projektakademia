@@ -11,15 +11,11 @@ public:
         int choice;
         int previousChoice;
 
-
-    const static int firstOption = 0;
-    const static int lastOption = 2;
-
     enum class Choice
     {
         Play = 0,
         Options,
-        EndGame
+        EndGame,
     };
 
     enum class Keys
@@ -28,10 +24,9 @@ public:
         Down = 80,
         Right = 77,
         Left = 75,
-        Keyboard = 224
+        Keyboard = 224,
 
     };
-
 
     static void gotoxy (short x, short y);
     void PrintMenu(Area& area);
@@ -45,8 +40,6 @@ public:
     void ResetMenu();
     void DisplayMenu(Area& area);
     void HandleMenu(Menu& menu, Area& area, Snake& snake);
-
-
 
 };
 

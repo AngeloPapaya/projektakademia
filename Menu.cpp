@@ -116,15 +116,15 @@ void Menu::HandleArrowKeys(Menu &menu, Area& area, Snake& snake)
                     switch( static_cast<Menu::Keys>(getch()) )
                     {
                         case Menu::Keys::Up:              //arrows up, options (currently only 3)
-                            if ( Menu::firstOption < menu.choice )
+                            if ( static_cast<int>(Menu::Choice::Play) < menu.choice )
                             menu.choice--;
-                            else menu.choice = Menu::lastOption;
+                            else menu.choice = static_cast<int>(Menu::Choice::EndGame);
                             break;
 
                         case Menu::Keys::Down:                    //arrows down, options (currently only 3)
-                            if ( menu.choice < Menu::lastOption )
+                            if ( menu.choice < static_cast<int> (Menu::Choice::EndGame) )
                             menu.choice++;
-                            else menu.choice = Menu::firstOption;
+                            else menu.choice = static_cast<int>(Menu::Choice::Play);
                             break;
 
 
