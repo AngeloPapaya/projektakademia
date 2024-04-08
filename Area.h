@@ -5,7 +5,7 @@ class Area
 public:
 
     int width, height;
-    void SetAreaSize(Area& area);
+    void SetAreaSize();
     void CleanScreenCompletely();
     void SetTextColor(int color);
     void SetBackgroundColor(int color);

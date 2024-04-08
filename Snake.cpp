@@ -47,7 +47,8 @@ void Snake::Setup(Area& area)
 
 void Snake::Logic(Area& area)
 {
-    tailX.resize(maxTailLength, 0); // Inicjalizacja listy tailX 
+
+    tailX.resize(maxTailLength, 0);
     tailY.resize(maxTailLength, 0);
 
     int prevX = tailX.front();
@@ -103,7 +104,7 @@ void Snake::Logic(Area& area)
         score += 10;
         fruitX = rand() % area.width;
         fruitY = rand() % area.height;
-     
+
         tailX.push_back(prevX);
         tailY.push_back(prevY);
 
@@ -120,7 +121,7 @@ void Snake::Logic(Area& area)
 
 void Snake::Draw(Area& area)
 {
-    system("cls"); 
+    system("cls");
 
     for (int i = 0; i < area.width + 2; i++) {
         std::cout << "#";

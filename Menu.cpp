@@ -73,7 +73,7 @@ void Menu::HandlePlayOption(Area& area, Snake& snake)
 
     area.CleanScreenCompletely();
     snake.Name(area);
-    area.SetAreaSize(area);
+    area.SetAreaSize();
     snake.Setup(area);
 
 
