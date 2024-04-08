@@ -1,18 +1,23 @@
 #include "Area.h"
-#include <vector>
-//#include <list>
+//#include <vector>
+#include <list>
 #include <string>
 #pragma once
-class Snake
+
+struct Position
+{
+    int x,y;
+};
+class Snake : public Position
 {
 public:
 
 std::string name;
-std::vector<int> tailX;
-std::vector<int> tailY;
+std::list<int> tailX;
+std::list<int> tailY;
 bool gameOver;
-int x,y,fruitX, fruitY, score;
-int maxTailLength = 12;
+int fruitX, fruitY, score;
+int maxTailLength = 4;
 
 int nTail=0;
 
