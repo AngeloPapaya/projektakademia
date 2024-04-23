@@ -34,18 +34,18 @@ void Snake::Input()
  }
 }
 
-void Snake::Setup(Area& area)
+void Snake::Setup()
 {
      gameOver = false;
      dir = STOP;
-     x = area.width / 2;
-     y = area.height / 2;
+     position.x = area.width / 2;
+     position.y = area.height / 2;
      fruitX = rand() % area.width; //fruit random position
      fruitY = rand() % area.height; // fruit random position
      score = 0;
 }
 
-void Snake::Logic(Area& area)
+void Snake::Logic()
 {
 
     tailX.resize(maxTailLength, 0);
@@ -55,8 +55,8 @@ void Snake::Logic(Area& area)
     int prevY = tailY.front();
     int prev2X, prev2Y;
 
-    tailX.front() = x;
-    tailY.front() = y;
+    tailX.front() = position.x;
+    tailY.front() = position.y;
 
     for (auto it = std::next(tailX.begin()); it != tailX.end(); ++it) {
         prev2X = *it;
@@ -70,36 +70,36 @@ void Snake::Logic(Area& area)
     switch (dir)
     {
         case LEFT:
-            x--;
+            position.x--;
             break;
         case RIGHT:
-            x++;
+            position.x++;
             break;
         case UP:
-            y--;
+            position.y--;
             break;
         case DOWN:
-            y++;
+            position.y++;
             break;
         default:
             break;
     }
 
-    if (x >= area.width) x = 0;
-    else if (x < 0) x = area.width - 1;
-    if (y >= area.height) y = 0;
-    else if (y < 0) y = area.height - 1;
+    if (position.x >= area.width) position.x = 0;
+    else if (position.x < 0) position.x = area.width - 1;
+    if (position.y >= area.height) position.y = 0;
+    else if (position.y < 0) position.y = area.height - 1;
 
     for (auto itX = tailX.begin(), itY = tailY.begin(); itX != std::next(tailX.begin(), nTail); ++itX, ++itY)
     {
-        if (*itX == x && *itY == y)
+        if (*itX == position.x && *itY == position.y)
         {
             gameOver = true;
             break;
         }
     }
 
-    if (x == fruitX && y == fruitY)
+    if (position.x == fruitX && position.y == fruitY)
     {
         score += 10;
         fruitX = rand() % area.width;
@@ -119,7 +119,7 @@ void Snake::Logic(Area& area)
     }
 }
 
-void Snake::Draw(Area& area)
+void Snake::Draw()
 {
     system("cls");
 
@@ -132,7 +132,7 @@ void Snake::Draw(Area& area)
         for (int j = 0; j < area.width; j++) {
             if (j == 0)
                 std::cout << "#";
-            if (i == y && j == x)
+            if (i == position.y && j == position.x)
                 std::cout << "O";
             else if (i == fruitY && j == fruitX)
                 std::cout << "F";
@@ -173,7 +173,7 @@ void Snake::Draw(Area& area)
     std::cout << ", aby zakonczyc gre.";
 }
 
-void Snake::Name(Area& area)
+void Snake::Name()
 {
     COORD pos = {12,4};
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
@@ -184,7 +184,7 @@ void Snake::Name(Area& area)
     area.CleanScreenCompletely();
 }
 
-void Snake::EndGameScore(Area& area)
+void Snake::EndGameScore()
 
 {
     Menu::gotoxy(24,2);

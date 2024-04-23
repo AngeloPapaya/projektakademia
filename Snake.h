@@ -1,4 +1,3 @@
-#include "Area.h"
 //#include <vector>
 #include <list>
 #include <string>
@@ -8,7 +7,7 @@ struct Position
 {
     int x,y;
 };
-class Snake : public Position
+class Snake
 {
 public:
 
@@ -17,7 +16,7 @@ std::list<int> tailX;
 std::list<int> tailY;
 bool gameOver;
 int fruitX, fruitY, score;
-int maxTailLength = 4;
+int maxTailLength = 2;
 
 int nTail=0;
 
@@ -31,12 +30,15 @@ enum Directon
 };
 
     Directon dir;
+    Position position;
+    Area area;
+    public:
     void Input();
-    void Setup (Area& area) ;
-    void Logic (Area& area) ;
-    void Draw (Area& area) ;
-    void Name (Area& area) ;
-    void EndGameScore (Area& area) ;
+    void Setup() ;
+    void Logic() ;
+    void Draw() ;
+    void Name () ;
+    void EndGameScore() ;
 
 
 

@@ -14,7 +14,7 @@ void Menu::gotoxy (short x, short y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
 }
 
-void Menu::PrintMenu(Area& area)
+void Menu::PrintMenu()
 {
     system( "cls" );
     //Area area;
@@ -41,7 +41,7 @@ void Menu::PrintMenu(Area& area)
     area.SetTextColor(4);
 }
 
-void Menu::PrintEndGameText(Area& area)
+void Menu::PrintEndGameText()
 {
     //Area area;
     system( "cls" );
@@ -60,7 +60,7 @@ void Menu::ActionKey(Menu::Choice choice, Area& area, Menu& menu, Snake& snake)
             Menu::HandlePlayOption(area, snake);
             break;
         case Menu::Choice::Options:
-            Menu::HandleOptions(area);
+            Menu::HandleOptions();
             break;
         case Menu::Choice::EndGame:
             Menu::HandleEndGame(area, menu);
@@ -72,27 +72,31 @@ void Menu::HandlePlayOption(Area& area, Snake& snake)
 {
 
     area.CleanScreenCompletely();
-    snake.Name(area);
+    snake.area = area;
+    snake.Name();
     area.SetAreaSize();
-    snake.Setup(area);
-
+    snake.area = area;
+    snake.Setup();
 
 do
 {
-    snake.Draw(area);
+    snake.area = area;
+    snake.Draw();
     snake.Input();
-    snake.Logic(area);
+    snake.area = area;
+    snake.Logic();
     Sleep(100); //sleep(10);
 } while (!snake.gameOver);
 
     area.CleanScreenCompletely();
     //PrintEndGameText(area);
-    snake.EndGameScore(area);
+    snake.area = area;
+    snake.EndGameScore();
     MenuLoop = false;
     MainLoop = false;
 }
 
-void Menu::HandleOptions(Area& area)
+void Menu::HandleOptions()
 {
     area.CleanScreenCompletely();
 }
@@ -100,7 +104,7 @@ void Menu::HandleOptions(Area& area)
 void Menu::HandleEndGame(Area& area, Menu& menu)
 {
     area.CleanScreenCompletely();
-    menu.PrintEndGameText(area);
+    menu.PrintEndGameText();
     MenuLoop = false;
     MainLoop = false;
 }
@@ -136,7 +140,7 @@ void Menu::HandleArrowKeys(Menu &menu, Area& area, Snake& snake)
                         {
                                 menu.choice = 0;
                                 area.CleanScreenCompletely();
-                                menu.PrintMenu(area);
+                                menu.PrintMenu();
                                 break;
                         }
                     }
@@ -167,10 +171,10 @@ void Menu::ResetMenu()
     MenuLoop = true;
 }
 
-void Menu::DisplayMenu(Area& area)
+void Menu::DisplayMenu()
 {
     system("cls");
-    PrintMenu(area);
+    PrintMenu();
 }
 
 void Menu::HandleMenu(Menu& menu, Area& area, Snake& snake)
