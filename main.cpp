@@ -6,6 +6,3 @@ int main()
     SnakeGame snakeGame;
     snakeGame.StartGame();
 }
-
-
-

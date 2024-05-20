@@ -2,6 +2,7 @@
 #include "Snake.h"
 #include <iostream>
 #pragma once
+
 class Menu
 {
 public:
@@ -43,4 +44,3 @@ public:
     void HandleMenu(Snake& snake);
 
 };
-

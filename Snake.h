@@ -1,7 +1,7 @@
-//#include <vector>
 #include <list>
 #include <string>
 #pragma once
+
 
 struct Position
 {
@@ -20,7 +20,7 @@ int maxTailLength = 2;
 
 int nTail=0;
 
-enum Directon
+enum Direction
 {
     STOP = 0,
     LEFT,
@@ -29,7 +29,7 @@ enum Directon
     DOWN,
 };
 
-    Directon dir;
+    Direction dir;
     Position position;
     Area area;
     public:
@@ -39,8 +39,4 @@ enum Directon
     void Draw() ;
     void Name () ;
     void EndGameScore() ;
-
-
-
 };
-

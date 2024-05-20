@@ -73,17 +73,15 @@ void Menu::HandlePlayOption()
 
     area.CleanScreenCompletely();
     area = area;
-    Name();
-    SetAreaSize();
-    area = area;
-    Setup();
+    snake.Name();
+    area.SetAreaSize();
+    snake.area = area;
+    snake.Setup();
 
 do
 {
-    snake.area = area;
     snake.Draw();
     snake.Input();
-    snake.area = area;
     snake.Logic();
     Sleep(100); //sleep(10);
 } while (!snake.gameOver);
@@ -181,6 +179,3 @@ void Menu::HandleMenu(Snake& snake)
 {
     HandleMenuLoop(snake);
 }
-
-
-

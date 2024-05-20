@@ -58,7 +58,8 @@ void Snake::Logic()
     tailX.front() = position.x;
     tailY.front() = position.y;
 
-    for (auto it = std::next(tailX.begin()); it != tailX.end(); ++it) {
+    for (auto it = std::next(tailX.begin()); it != tailX.end(); ++it)
+    {
         prev2X = *it;
         prev2Y = *std::next(tailY.begin(), std::distance(tailX.begin(), it));
         *it = prevX;
@@ -123,13 +124,16 @@ void Snake::Draw()
 {
     system("cls");
 
-    for (int i = 0; i < area.width + 2; i++) {
+    for (int i = 0; i < area.width + 2; i++)
+    {
         std::cout << "#";
     }
     std::cout << "\n";
 
-    for (int i = 0; i < area.height; i++) {
-        for (int j = 0; j < area.width; j++) {
+    for (int i = 0; i < area.height; i++)
+        {
+        for (int j = 0; j < area.width; j++)
+        {
             if (j == 0)
                 std::cout << "#";
             if (i == position.y && j == position.x)
@@ -138,8 +142,10 @@ void Snake::Draw()
                 std::cout << "F";
             else {
                 bool print = false;
-                for (auto itX = tailX.begin(), itY = tailY.begin(); itX != std::next(tailX.begin(), nTail); ++itX, ++itY) {
-                    if (*itX == j && *itY == i) {
+                for (auto itX = tailX.begin(), itY = tailY.begin(); itX != std::next(tailX.begin(), nTail); ++itX, ++itY)
+                {
+                    if (*itX == j && *itY == i)
+                    {
                         std::cout << "o";
                         print = true;
                     }
@@ -159,7 +165,7 @@ void Snake::Draw()
 
     std::cout << "Maksymalna dlugosc weza to: ";
     area.SetTextColor(6);
-    std::cout << maxTailLength << "\n";
+    std::cout << maxTailLength + 1 << "\n";
     area.SetTextColor(7);
     std::cout << name << " punkty: ";
     area.SetTextColor(6);
@@ -196,10 +202,4 @@ void Snake::EndGameScore()
     Menu::gotoxy(22,3);
     std::cout << "Powodzenia nastepnym razem!" << "\n";
     area.SetTextColor(7);
-
-
-
 }
-
-
-

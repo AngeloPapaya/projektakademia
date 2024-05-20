@@ -10,4 +10,3 @@ public:
     void SetBackgroundColor(int color);
 
 };
-

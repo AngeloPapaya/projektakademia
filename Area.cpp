@@ -47,4 +47,3 @@ void Area::SetAreaSize()
         } while (height < 10 || height > 40);
 
 }
-
